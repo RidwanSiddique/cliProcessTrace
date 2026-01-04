@@ -1,4 +1,4 @@
-# traceproc — Portable Process Trace Sampler (C)
+# Portable Process Trace Sampler (C)
 
 `traceproc` is a lightweight process tracing/sampling tool written in **C**. It periodically captures runtime metrics of a target process and produces **timestamped trace-style logs** in **CSV** or **JSONL**.
 
