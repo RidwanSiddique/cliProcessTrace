@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.16)
+project(traceproc C)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+add_executable(traceproc
+    src/main.c
+    src/util.c
+    src/output.c
+)
+
+target_include_directories(traceproc PRIVATE include src)
+
+if(APPLE)
+    target_sources(traceproc PRIVATE src/platform_macos.c)
+elseif(UNIX)
+    target_sources(traceproc PRIVATE src/platform_linux.c)
+elseif(WIN32)
+    target_sources(traceproc PRIVATE src/platform_windows.c)
+endif()
